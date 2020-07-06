@@ -1,0 +1,35 @@
+---
+title: "Plotly Plot"
+author: "Kailash Natarajan"
+date: "06/07/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## Date of making this presentation
+
+
+Today's date is 6-July-2020. 
+
+## Description
+
+- This is a basic plot using the plotly package. 
+- You may hover over the plot to find more details on the data.
+- Proceed to the next slide.
+```{r message=FALSE,echo=FALSE,warning=FALSE}
+library(plotly)
+library(lubridate)
+##Ignore the below lines of output arising from importing library.
+```
+## Plot 
+
+We are using dataset "economics" to plot the number of unemployed in the year 2000 in the US, month by month.
+```{r, verbose=FALSE,warning=FALSE}
+data("economics")
+economics<-economics[year(economics$date)==2000,c("unemploy","date")]
+plot_ly(economics,x=~date,y=~unemploy,type="scatter",mode="markers")
+```
+
+## Thank You
